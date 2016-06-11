@@ -1,0 +1,5 @@
+See jni/tremolo/COPYING for the license and copyright of the
+original Tremolo source code:
+"Same BSD style license as the original Theora software."
+
+The tiny additions by Michalis are covered by the same license.
