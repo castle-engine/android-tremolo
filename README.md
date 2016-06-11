@@ -24,8 +24,8 @@ libs/armeabi-v7a/libtremolo.so
 libs/armeabi-v7a/libtremolo-low-precision.so
 ```
 
-You can use them in your Android NDK projects. Choose one version -- normal, or low precision.
-The API is the same, and is also compatible with (a subset of) libvorbisfile.
+You can use them in your Android NDK projects. Choose one version -- normal, or low precision. The low precision version may be faster, although the quality is horrible in my tests. The API is the same, and is also compatible with (a subset of) libvorbisfile.
+
 For example you can use these libraries with [Castle Game Engine](http://castle-engine.sourceforge.net/) "ogg_vorbis"
 component (see https://github.com/castle-engine/castle-engine/wiki/Android-Project-Components-Integrated-with-Castle-Game-Engine#ogg_vorbis
 ), just copy the chosen .so file to `castle-engine/tools/build-tool/data/android/integrated-components/ogg_vorbis/jni/`.
