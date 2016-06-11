@@ -6,17 +6,23 @@ See http://wss.co.uk/pinknoise/tremolo/ for the details.
 
 Compile by simple
 
-  ndk-build
+```
+ndk-build
+```
 
 or
 
-  make
+```
+make
+```
 
 here. This assumes you have Android NDK installed and `ndk-build` on $PATH.
 This will create files
 
-  jni/libtremolo.so
-  jni/libtremolo-low-precision.so
+```
+jni/libtremolo.so
+jni/libtremolo-low-precision.so
+```
 
 You can use them in your Android projects. Choose one -- normal, or low precision.
 The API is the same, and is also compatible with (a subset of) libvorbisfile.
