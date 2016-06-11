@@ -20,8 +20,8 @@ here. This assumes you have Android NDK installed and `ndk-build` on $PATH.
 This will create files
 
 ```
-jni/libtremolo.so
-jni/libtremolo-low-precision.so
+libs/armeabi-v7a/libtremolo.so
+libs/armeabi-v7a/libtremolo-low-precision.so
 ```
 
 You can use them in your Android NDK projects. Choose one version -- normal, or low precision.
