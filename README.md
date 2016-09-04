@@ -28,7 +28,7 @@ You can use them in your Android NDK projects. Choose one version -- normal, or 
 
 For example you can use these libraries with [Castle Game Engine](http://castle-engine.sourceforge.net/) "ogg_vorbis"
 component (see https://github.com/castle-engine/castle-engine/wiki/Android-Project-Components-Integrated-with-Castle-Game-Engine#ogg_vorbis
-), just copy the chosen .so file to `castle-engine/tools/build-tool/data/android/integrated-components/ogg_vorbis/jni/`.
+), just copy the chosen .so file to `castle-engine/tools/build-tool/data/android/integrated-components/ogg_vorbis/app/src/main/jniLibs/armeabi-v7a/`.
 
 The source code here is taken from Tremolo 0.08 release,
 http://wss.co.uk/pinknoise/tremolo/Tremolo008.zip .
