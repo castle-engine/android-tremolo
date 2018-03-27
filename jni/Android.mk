@@ -1,4 +1,4 @@
-TARGET_PLATFORM := android-3
+TARGET_PLATFORM := android-23
 
 ROOT_PATH := $(call my-dir)
 
@@ -7,36 +7,35 @@ ROOT_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-TARGET_PLATFORM := android-3
+TARGET_PLATFORM := android-23
 
 LOCAL_MODULE     := tremolo
 LOCAL_ARM_MODE   := arm
 LOCAL_PATH       := $(ROOT_PATH)/tremolo
 LOCAL_SRC_FILES  := bitwise.c      \
-                    bitwiseARM.s   \
                     codebook.c     \
-                    dpen.s         \
                     dsp.c          \
                     floor0.c       \
                     floor1.c       \
-                    floor1ARM.s    \
                     floor_lookup.c \
                     framing.c      \
                     info.c         \
                     mapping0.c     \
                     mdct.c         \
-                    mdctARM.s      \
                     misc.c         \
                     res012.c       \
-                    speed.s        \
                     vorbisfile.c   \
 
 
-# Do not use these, they are for low-precision version.
-                    # mdctLARM.s     \
-                    # floor1LARM.s   \
-
 LOCAL_CFLAGS     := -ffast-math -D_ARM_ASSEM_
+
+# Compile Position-Independent code.
+# See https://discourse.libsdl.org/t/warning-shared-library-text-segment-is-not-shareable/23517/7
+#
+# Avoids error at compilation
+# .../ndk/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/lib/gcc/arm-linux-androideabi/4.9.x/../../../../arm-linux-androideabi/bin/ld: warning: shared library text segment is not shareable
+# (this error can be converted into a warning, but then it fails at installation)
+LOCAL_CFLAGS += -fPIC -DONLY_C
 
 include $(BUILD_SHARED_LIBRARY)
 
@@ -45,32 +44,28 @@ include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
 
-TARGET_PLATFORM := android-3
+TARGET_PLATFORM := android-23
 
 LOCAL_MODULE     := tremolo-low-precision
 LOCAL_ARM_MODE   := arm
 LOCAL_PATH       := $(ROOT_PATH)/tremolo
 LOCAL_SRC_FILES  := bitwise.c      \
-                    bitwiseARM.s   \
                     codebook.c     \
-                    dpen.s         \
                     dsp.c          \
                     floor0.c       \
                     floor1.c       \
-                    floor1LARM.s   \
                     floor_lookup.c \
                     framing.c      \
                     info.c         \
                     mapping0.c     \
                     mdct.c         \
-                    mdctLARM.s     \
                     misc.c         \
                     res012.c       \
-                    speed.s        \
                     vorbisfile.c   \
 
 
 LOCAL_CFLAGS     := -ffast-math -D_ARM_ASSEM_
+LOCAL_CFLAGS += -fPIC -DONLY_C
 
 include $(BUILD_SHARED_LIBRARY)
 
