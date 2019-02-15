@@ -1,4 +1,5 @@
-TARGET_PLATFORM := android-23
+# Same as Castle Game Engine minimal platform version
+TARGET_PLATFORM := android-16
 
 ROOT_PATH := $(call my-dir)
 
@@ -7,7 +8,8 @@ ROOT_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-TARGET_PLATFORM := android-23
+# Same as Castle Game Engine minimal platform version
+TARGET_PLATFORM := android-16
 
 LOCAL_MODULE     := tremolo
 LOCAL_ARM_MODE   := arm
@@ -44,7 +46,8 @@ include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
 
-TARGET_PLATFORM := android-23
+# Same as Castle Game Engine minimal platform version
+TARGET_PLATFORM := android-16
 
 LOCAL_MODULE     := tremolo-low-precision
 LOCAL_ARM_MODE   := arm
