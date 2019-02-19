@@ -6,7 +6,9 @@ ROOT_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE     := tremolo
-LOCAL_ARM_MODE   := arm
+ifeq ($(TARGET_ARCH),arm)
+  LOCAL_ARM_MODE   := arm
+endif
 LOCAL_PATH       := $(ROOT_PATH)/tremolo
 LOCAL_SRC_FILES  := bitwise.c      \
                     codebook.c     \
@@ -22,8 +24,11 @@ LOCAL_SRC_FILES  := bitwise.c      \
                     res012.c       \
                     vorbisfile.c   \
 
-
-LOCAL_CFLAGS     := -ffast-math -D_ARM_ASSEM_
+ifeq ($(TARGET_ARCH),arm)
+  LOCAL_CFLAGS     := -ffast-math -D_ARM_ASSEM_
+else
+  LOCAL_CFLAGS     := -ffast-math
+endif
 
 # Compile Position-Independent code.
 # See https://discourse.libsdl.org/t/warning-shared-library-text-segment-is-not-shareable/23517/7
@@ -41,7 +46,9 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE     := tremolo-low-precision
-LOCAL_ARM_MODE   := arm
+ifeq ($(TARGET_ARCH),arm)
+  LOCAL_ARM_MODE   := arm
+endif
 LOCAL_PATH       := $(ROOT_PATH)/tremolo
 LOCAL_SRC_FILES  := bitwise.c      \
                     codebook.c     \
@@ -58,7 +65,11 @@ LOCAL_SRC_FILES  := bitwise.c      \
                     vorbisfile.c   \
 
 
-LOCAL_CFLAGS     := -ffast-math -D_ARM_ASSEM_
+ifeq ($(TARGET_ARCH),arm)
+  LOCAL_CFLAGS     := -ffast-math -D_ARM_ASSEM_
+else
+  LOCAL_CFLAGS     := -ffast-math
+endif
 LOCAL_CFLAGS += -fPIC -DONLY_C
 
 include $(BUILD_SHARED_LIBRARY)

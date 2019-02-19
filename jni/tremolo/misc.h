@@ -48,7 +48,11 @@ extern void _VDBG_free(void *ptr,char *file,long line);
 
 #include <sys/types.h>
 
-#if BYTE_ORDER==LITTLE_ENDIAN
+// sys/endian.h defines_BYTE_ORDER, _LITTLE_ENDIAN ,
+// see .../ndk-bundle/sysroot/usr/include/sys/endian.h
+#include <sys/endian.h>
+
+#if _BYTE_ORDER == _LITTLE_ENDIAN
 union magic {
   struct {
     ogg_int32_t lo;
@@ -58,7 +62,7 @@ union magic {
 };
 #endif 
 
-#if BYTE_ORDER==BIG_ENDIAN
+#if _BYTE_ORDER == _BIG_ENDIAN
 union magic {
   struct {
     ogg_int32_t hi;
