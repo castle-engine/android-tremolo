@@ -1,34 +1,37 @@
-# Easily compile Tremolo as a shared library using Android NDK
+# Easily compile Tremolo for Android for Castle Game Engine
 
 "Tremolo" is (simplifying a little) a fast native library
 to read OggVorbis on Android.
 See http://wss.co.uk/pinknoise/tremolo/ for the details.
 
-Compile by simple
+This repository allows to easily recompile Tremolo
+and copy the result over the _Castle Game Engine_ sources.
+It assumes:
 
-```
-ndk-build
-```
+- You have installed Android NDK, and `ndk-build` is on $PATH.
 
-or
+- The source code of _Castle Game Engine_ is in `$CASTLE_ENGINE_PATH`.
 
-```
-make
-```
+Then just run `make build` .
 
-here. This assumes you have Android NDK installed and `ndk-build` on $PATH.
-This will create files
+It will recompile the library for
+the appropriate Android versions and architectures
+-- the ones used by _Castle Game Engine_.
 
-```
-libs/armeabi-v7a/libtremolo.so
-libs/armeabi-v7a/libtremolo-low-precision.so
-```
+# Low-precision version
 
-You can use them in your Android NDK projects. Choose one version -- normal, or low precision. The low precision version may be faster, although the quality is horrible in my tests. The API is the same, and is also compatible with (a subset of) libvorbisfile.
+It is possible to alternatively use a low-precision version of Tremolo.
+Instead of `libtremolo.so`, you would take `libtremolo-low-precision.so`.
+The low precision version may be faster,
+although the quality is very bad in my tests.
 
-For example you can use these libraries with [Castle Game Engine](http://castle-engine.sourceforge.net/) "ogg_vorbis"
+# CGE
+
+You can use these libraries with [Castle Game Engine](http://castle-engine.sourceforge.net/) "ogg_vorbis"
 component (see https://github.com/castle-engine/castle-engine/wiki/Android-Project-Components-Integrated-with-Castle-Game-Engine#ogg_vorbis
-), just copy the chosen .so file to `castle-engine/tools/build-tool/data/android/integrated-components/ogg_vorbis/app/src/main/jniLibs/armeabi-v7a/`.
+).
+
+# Credits
 
 The source code here is taken from Tremolo 0.08 release,
 http://wss.co.uk/pinknoise/tremolo/Tremolo008.zip .
