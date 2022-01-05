@@ -32,7 +32,7 @@ although the quality is very bad in my tests.
 # CGE
 
 You can use these libraries with [Castle Game Engine](https://castle-engine.io/) "ogg_vorbis"
-component (see https://github.com/castle-engine/castle-engine/wiki/Android-Project-Components-Integrated-with-Castle-Game-Engine#ogg_vorbis
+component (see https://github.com/castle-engine/castle-engine/blob/master/tools/build-tool/data/android/integrated-services/ogg_vorbis/README.adoc
 ).
 
 # Credits
